@@ -5,12 +5,10 @@ var SlidingDancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.flag = true;
 
+
   this.step();
   this.setPosition(top, left);
 };
-//Sliding Dancer (moves left, toggle moves right) (dancer base)
-//      $("body").width() * Math.random(),
-
 
 SlidingDancer.prototype = Object.create(Dancer.prototype);
 SlidingDancer.prototype.constructor = SlidingDancer;
@@ -22,7 +20,8 @@ SlidingDancer.prototype.step = function() {
   } else {
     this.$node.animate({left: this.left - 100});
     this.flag = true;
-  }
+  } 
+
 
   Dancer.prototype.step.call(this);
 
