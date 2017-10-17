@@ -3,22 +3,36 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-color: #B1A3E8;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: #546D85;
+  text-decoration: none;
 }
+
+body, a:hover {
+  color: #27323D;
+}
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+  color: #546D85;
 }
+
+.title, .lineUpButton{
+  padding:5px 12px;
+  float:right;
+  color: #546D85;
+}
+
 .topbar{
   height:32px;
-  background-color: #555;
+  background-color: #E8D2A3;
 }
 .title{
-  background-color: #777;
+  background-color: #E8D2A3;
 }
 .dancer{
   border:10px solid red;

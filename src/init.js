@@ -25,22 +25,22 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 10
+      Math.random() * 1000
     );
-    $('body').append(dancer.$node);
-    window.dancers.push(dancer.$node);
+      $('body').append(dancer.$node);
+      window.dancers.push(dancer);
+    });
+      
   });
 
-  $('.lineUpButton').on('click', function(event) {
-    $('sliding-dancer').lineupFlag = true;
-    var styleSetting = {
-      top: 100
-    };
-
-    $('span').css(styleSetting);
-
+ $('.lineUpButton').on('click', function(event) {
+    window.dancers.forEach(function(dancer) {
+      dancer.lineUp();
   });
+
 });
+
+
 
 
 
