@@ -4,6 +4,7 @@ body, html{
 body{
   margin: 0px;
   background-color: #B1A3E8;
+  background-image: url('./src/images/background.jpg');
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -15,9 +16,13 @@ body, a:hover {
   color: #27323D;
 }
 
+h5{
+  margin-top: 0;
+}
+
 .title, .addDancerButton{
   padding:5px 12px;
-  float:right;
+  float: left;
   color: #546D85;
 }
 
@@ -31,16 +36,51 @@ body, a:hover {
   height:32px;
   background-color: #E8D2A3;
 }
+
 .title{
   background-color: #E8D2A3;
 }
+
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  border: 50px solid red;
+  border-radius:50px;
+  width: 50px;
+  height: 50px; 
   position:absolute;
+}
+
+.line{
+  height: 100px;
+  width: 100px;
+  border: none;
+  position:absolute;
+}
+
+.crazy{
+  height: 100px;
+  width: 100px;
+  border: none;
+  position:absolute;
+}
+
+.rainbow {
+  height: 100px;
+  width: 100px;
+  border: none;
 }
 
 .wrapper {
   height: 100%;
   width: 100%;
+}
+
+.emoji {
+  height: 100px;
+  width: 100px;
+  border: none;
+  position: absolute;
+}
+
+.partypooper{
+  float: left;
 }

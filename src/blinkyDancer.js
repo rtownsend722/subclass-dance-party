@@ -8,16 +8,16 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 
-
+// BlinkyDancer step blinks in the same place
 BlinkyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
-
+  //Randomize a new color for every blink
   var RGBColor = function() { 
     return Math.floor(Math.random() * 256); 
   };
 
-   var randomColor = {
-    border: "10px solid rgb(" + 
+  var randomColor = {
+    border: '10px solid rgb(' + 
       RGBColor() + ',' + 
       RGBColor() + ',' + 
       RGBColor() + ')'};
@@ -26,5 +26,3 @@ BlinkyDancer.prototype.step = function() {
 
   this.$node.toggle();
 };
-
-

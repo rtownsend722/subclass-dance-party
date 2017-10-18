@@ -1,13 +1,13 @@
 describe('Dancer Tests', function() {
 
-  var blinkyDancer, slidingDancer, boxDancer, clock;
+// Does not test Crazy Dancer or Rainbow Dancer at this time
+  var blinkyDancer, lineDancer, clock;
   var timeBetweenSteps = 10;
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
-    slidingDancer = new SlidingDancer(20, 30, timeBetweenSteps);
-    boxDancer = new BoxDancer(30, 40, timeBetweenSteps);
+    lineDancer = new LineDancer(20, 30, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -32,36 +32,12 @@ describe('Dancer Tests', function() {
     });
   });
 
-  describe('sliding dancer', function() {
+  describe('line dancer', function() {
     it('should move left and right', function() {
-      sinon.spy(slidingDancer, 'step');
-      expect(slidingDancer.flag).to.be.equal(false);
+      sinon.spy(lineDancer, 'step');
+      expect(lineDancer.flag).to.be.equal(false);
       clock.tick(timeBetweenSteps);
-      expect(slidingDancer.flag).to.be.equal(true);
-    });
-  });
-
-  describe('box dancer', function() {
-    xit ('should move in a box pattern', function() {
-    // H T, V T, Actually coming out H F, V T
-    console.log('Opening Step', boxDancer.horizontalFlag, boxDancer.verticalFlag);
-
-      sinon.spy(boxDancer, 'step');
-      console.log(boxDancer.horizontalFlag);
-      expect(boxDancer.horizontalFlag).to.be.equal(false);
-
-      clock.tick(timeBetweenSteps);
-      console.log(boxDancer.verticalFlag);
-      expect(boxDancer.verticalFlag).to.be.equal(false);
-
-      clock.tick(timeBetweenSteps);
-      console.log(boxDancer.horizontalFlag);
- 
-      expect(boxDancer.horizontalFlag).to.be.equal(false);
-      clock.tick(timeBetweenSteps);
- 
-      console.log(boxDancer.verticalFlag);
-      expect(boxDancer.verticalFlag).to.be.equal(true);
+      expect(lineDancer.flag).to.be.equal(true);
     });
   });
 });

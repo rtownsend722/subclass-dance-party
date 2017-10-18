@@ -2,26 +2,12 @@ $(document).ready(function() {
   window.dancers = [];
 
   $('.addDancerButton').on('click', function(event) {
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the 'data-dancer-maker-function-name' attribute of a
-     * class='addDancerButton' DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
@@ -29,19 +15,25 @@ $(document).ready(function() {
     );
     $('.wrapper').append(dancer.$node);
     window.dancers.push(dancer);
+
+    // When hovering or mousing over the Party Pooper emoji, more emoji fill the background
+    $('.rainbow').hover(function() {
+      console.log('Hi!');
+      $('.wrapper').append("<div class = 'partypooper'><img src='./src/images/rainbow.png' height='50px' width='50px'></div>");
+    });
+
   });
 
+  // Lines up all the dancers at postion 150px from the top
   $('.lineUpButton').on('click', function(event) {
     window.dancers.forEach(function(dancer) {
       dancer.lineUp();
       dancer.top = 150;
-    });
-
-        
+    });        
   });
 
+  // On click, when dancers are too close, it makes a sparkly sound
   $('.wrapper').on('click', function(event) {
-   // call lineDancer.collide
     window.dancers.forEach(function(dancer) {
       dancer.collide();
     });
